@@ -16,13 +16,101 @@
 }
 
 .hero h1{
-    font-size: 45px;
+    font-size: 80px;
     font-weight: 750;
     margin-top: -50px;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     color: #858ce7;
 }
 
 .hero h1 span{
     color: #676fe6;
 }
+
+textarea{
+    width: 500px;
+    height: 250px;
+    background: #fff;
+    color: #000000;
+    font-size: 22px;
+    border: 0;
+    outline: none;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    resize: none;
+    margin-bottom: 30px;
+}
+
+textarea::placeholder{
+    color: #000000;
+    font-size: 22px;
+}
+
+.barra {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espaço entre o select e o botão */
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+button {
+    width: 200px;
+    height: 50px;
+    background: #676fe6;
+    color: #fff;
+    font-size: 22px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    position: relative;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button img {
+    position: absolute;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+
+button:hover{
+    background: #858ce7;
+}
+
+button:active{
+    background: #676fe6;
+}
+
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+select {
+    width: 200px;
+    height: 50px;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+    appearance: none;
+    background-image: url(imagens/—Pngtree—3d\ orange\ arrow\ design\ vector_6122143.png);
+    background-repeat: no-repeat;
+    background-size: 35px;
+    background-position: left 160px center;
+}
+
+
