@@ -1,27 +1,43 @@
 let speech = new SpeechSynthesisUtterance();
-
 let voices = [];
+const voicesSelect = document.querySelector("select");
 
-let voicesSelect = document.querySelector("select");
-
-window.speechSynthesis.onvoiceschanged = () => {
+function populateVoices() {
     voices = window.speechSynthesis.getVoices();
-    speech.voice = voices[0];
 
-    voices.forEach((voice, i) => (voicesSelect.options[i] = new Option(voice.name, i)));
+    if (voices.length === 0) {
+        setTimeout(populateVoices, 100);
+        return;
+    }
+
+    voicesSelect.innerHTML = ""; 
+    voices.forEach((voice, i) => {
+        const option = new Option(voice.name, i);
+        voicesSelect.add(option);
+    });
+
+    speech.voice = voices[0];
 }
+
+populateVoices();
+
+if ("onvoiceschanged" in window.speechSynthesis) {
+    window.speechSynthesis.onvoiceschanged = populateVoices;
+}
+
 voicesSelect.addEventListener("change", () => {
     speech.voice = voices[voicesSelect.value];
 });
 
 document.querySelector("button").addEventListener("click", () => {
-        speech.text = document.querySelector("textarea").value;
-        window.speechSynthesis.speak(speech);
+    speech.text = document.querySelector("textarea").value;
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(speech);
 });
 
 document.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
-        event.preventDefault(); 
+        event.preventDefault();
         document.querySelector(".play-button").click();
     }
 });
